@@ -1,0 +1,64 @@
+@import java.util
+@(userDetails : UserDetails , userSubmissions : util.List[UserSubmission])
+<head>
+    <title>Reactive Stock News Dashboard</title>
+
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
+</head>
+<div id="root">
+<section class="card">
+    <div class="back-button">
+        <button value="Back" type="Button" onclick="history.go(-1);">Go back</button>
+    </div>
+    @if(userDetails != null && userDetails.getData != null) {
+        <section class="user_info">
+            <div class="user_info--profile">
+            @if(userDetails.getData.getSnoovatar_img()) {
+                <img alt="Profile picture" src="@userDetails.getData.getSnoovatar_img" class="user_info--profile-img"/>
+            } else {
+                @if(userDetails.getData.getIcon_img) {
+                    <img alt="Profile picture" src="@userDetails.getData.getIcon_img" class="user_info--profile-img"/>
+                } else {
+                    <img alt="Profile picture" src="/assets/images/default.png" class="user_info--profile-img" />
+                }
+            }
+            </div>
+            <div class="user_info--details">
+                <h1>@userDetails.getData.getName</h1>
+                <p class="title">Total Karma : @userDetails.getData.getTotal_karma</p>
+                @if(userDetails.getData.getSubreddit != null) {
+                    <p class="title">Total Subscribers : @userDetails.getData.getSubreddit.getSubscribers</p>
+                }
+            </div>
+        </section>
+
+    } else {
+        <span style="font-weight: bold;">User Details not found!!</span>
+    }
+</section>
+@if(userSubmissions != null) {
+    @for((submission, idx) <- userSubmissions.zipWithIndex) {
+        <section class="card">
+            <h4><span> @{
+                {idx} + 1
+            } . @submission.getTitle
+            </span>
+            </h4>
+            <p>@submission.getSelftext</p>
+            <p><span style="font-weight: bold;">Posted Date :</span>
+                @submission.getDate</p>
+            <a href="@submission.getFull_link" target="_blank">@submission.getFull_link</a>
+            <p></p>
+        </section>
+    }
+} else {
+    <section class="card">
+        <span style="font-weight: bold;">No Submissions found!</span>
+    </section>
+}
+</div>

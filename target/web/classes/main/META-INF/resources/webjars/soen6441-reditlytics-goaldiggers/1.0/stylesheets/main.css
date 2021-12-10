@@ -1,0 +1,172 @@
+*, *::after, *::before  {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: system-ui, sans-serif;
+}
+
+#content {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+#root{
+  min-height: 100vh;
+  background-color: #e9c46a;
+  color: #2a9d8f;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+/*
+Header
+*/
+
+header {
+  display: block;
+  height: 5rem;
+  width: 100%;
+  background: #2a9d8f;
+  position: relative;
+}
+
+.header_content--title {
+  display: inline-block;
+  font-weight: bold;
+  color: #e9c46a;
+  font-size: 3rem;
+  padding: .5rem;
+  margin-left: 3rem;
+  cursor: default;
+}
+
+
+/*
+Intro Styles
+*/
+
+.intro {
+  padding: 1.5rem;
+}
+
+.intro_heading {
+  text-align: center;
+  letter-spacing: .07rem;
+  font-size: 3rem;
+  cursor: default;
+}
+
+.intro_search {
+  text-align: center;
+  padding: 2rem;
+}
+
+.intro_search--input {
+  padding: .5rem;
+  margin-right: 1rem;
+  border: none;
+  border-radius: 2px;
+}
+
+.clear {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.intro_search--input::placeholder{
+  font-family: system-ui, sans-serif;
+}
+
+.intro_search--input:focus {
+  outline: none;
+}
+
+.intro_search--submit {
+  width: 8rem;
+  padding: 0.5rem;
+  border: 1px solid #264653;
+  border-radius: 15px;
+  font-weight: bold;
+  color: #2a9d8f;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.intro_search--submit:hover{
+  color: #e9c46a;
+  background-color: #2a9d8f;
+  border: 1px solid transparent;
+}
+
+/*
+Main
+*/
+
+.submission {
+  width: 50%;
+  text-align: justify;
+  margin: 0 auto;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+.submission:not(:last-child) {
+
+}
+
+.submissionContainer {
+  padding: 20px 0px;
+}
+
+
+.card {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 5rem;
+  position: relative;
+}
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.user_info--profile {
+  margin-right: 50px;
+}
+
+.user_info--profile-img {
+  height: 180px;
+  width: 150px;
+}
+
+.back-icon {
+  position: absolute;
+  left: 20px;
+  top: 70px;
+}
+
+/*
+Footer
+*/

@@ -1,0 +1,36 @@
+@import java.util
+@(stats: util.Map[String, Integer])
+<head>
+    <title>Reactive Stock News Dashboard</title>
+
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
+</head>
+
+
+<div id="root">
+        <section id="content">
+            <div class="intro">
+
+                <div class="back-icon">
+                    <button value="Back" type="Button" onclick="history.go(-1);">Back</button>
+                </div>
+
+                <h2 style="text-align: center">Word level statistics of submissions: </h2>
+
+                <div class="intro_search">
+                    @if(stats != null ) {
+                        @for((word,count) <- stats) {
+                            <span> @{word} - </span>
+                            <span> @{count} </span>
+                            <br>
+                            }
+                    }
+                </div>
+            </div>
+        </section>
+</div>

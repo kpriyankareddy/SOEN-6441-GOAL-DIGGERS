@@ -1,0 +1,26 @@
+@import views.html.Header.Header
+@import views.html.Main.Form
+@import views.html.Main.Main
+
+@(request: play.mvc.Http.Request, webJarsUtil: org.webjars.play.WebJarsUtil)
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Reactive Stock News Dashboard</title>
+
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+
+    @webJarsUtil.locate("jquery.min.js").script()
+    @webJarsUtil.locate("jquery.flot.js").script()
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
+</head>
+<body data-ws-url="@routes.HomeController.ws.webSocketURL(request)">
+    @Header()
+    @Main()
+
+</body>
+</html>
